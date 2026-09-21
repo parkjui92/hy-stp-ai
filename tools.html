@@ -105,9 +105,9 @@ footer{margin-top:40px;font-size:13.5px;color:var(--muted);border-top:1px solid 
 
   <h2>5. 함께 쓰는 스킬 · 도구 (공개 · MIT)</h2>
   <table>
-    <thead><tr><th style="width:20%">이름</th><th>무엇을 하나</th><th style="width:34%">저장소</th></tr></thead>
+    <thead><tr><th style="width:17%">이름</th><th>무엇을 하나</th><th style="width:27%">저장소</th></tr></thead>
     <tbody>
-      <tr><td class="n">policy-research-kit</td><td>정책연구 5인 에이전트 팀 플러그인 — 설계 → 조사 → 집필 → 검수 → 한글 변환</td><td><a href="https://github.com/parkjui92/policy-research-kit">github.com/parkjui92/policy-research-kit</a></td></tr>
+      <tr><td class="n">policy-research-kit</td><td style="white-space:nowrap">정책연구 5인 에이전트 팀 플러그인 — 설계→조사→집필→검수→한글 변환</td><td><a href="https://github.com/parkjui92/policy-research-kit">github.com/parkjui92/policy-research-kit</a></td></tr>
       <tr><td class="n">rnd-proposal-kit · socsci-paper-kit</td><td>정부 R&D 제안서 팀 · 사회과학 논문 팀</td><td><a href="https://github.com/parkjui92/rnd-proposal-kit">rnd-proposal-kit</a> · <a href="https://github.com/parkjui92/socsci-paper-kit">socsci-paper-kit</a></td></tr>
       <tr><td class="n">paper-proofread</td><td>한국어 학술 원고 교정 · 교열 + 참고문헌 형식</td><td><a href="https://github.com/parkjui92/paper-proofread">github.com/parkjui92/paper-proofread</a></td></tr>
       <tr><td class="n">doc-figure</td><td>한글이 깨지지 않는 삽도 — 일정도 · 구조도 · 흐름도 (설치 없이도)</td><td><a href="https://github.com/parkjui92/doc-figure">github.com/parkjui92/doc-figure</a></td></tr>
@@ -122,6 +122,23 @@ footer{margin-top:40px;font-size:13.5px;color:var(--muted);border-top:1px solid 
 설치가 끝나면 무엇을 할 수 있는지, 어떻게 부르는지 알려줘.</div>
   <div class="prompt">Crossref API로 최근 3년 science and technology policy 논문을 연도별로 집계해서 표로 보여줘.</div>
   <div class="callout">키가 필요한 창구는 <b>.env 파일</b>에 키를 두고 에이전트가 읽게 한다 — 문서 · 채팅 · 슬라이드에 키를 적지 않는다. 설치가 안 되면 오류 메시지를 그대로 붙여 넣고 "왜 안 되는지 설명하고 고쳐줘"</div>
+
+  <h2>7. 사용 팁 — 키 보관과 보안 검토</h2>
+  <table>
+    <thead><tr><th style="width:22%">팁</th><th>어떻게</th></tr></thead>
+    <tbody>
+      <tr><td class="n">API 키는 .env에</td><td>프로젝트 폴더의 <code>.env</code> 파일에 <code>LAW_OC=…</code> 식으로 한 줄씩 적고 에이전트가 읽게 한다. 문서 · 채팅 · 슬라이드 · 깃허브에는 절대 적지 않는다 — <code>.gitignore</code>에 <code>.env</code>를 넣어 저장소에 올라가지 않게</td></tr>
+      <tr><td class="n">설치 전 적대적 보안 검토</td><td>남이 만든 MCP · 스킬 · 플러그인은 설치 전에 <b>공격자의 눈으로</b> 읽힌다 — 어떤 권한을 요구하는지, 어디로 네트워크를 보내는지, 파일을 지우거나 키를 읽는 코드가 있는지. 아래 프롬프트를 그대로</td></tr>
+      <tr><td class="n">설치 후 확인은 일을 시켜서</td><td>"설치됐다"는 말이 아니라 "방금 설치한 도구로 ○○ 해줘"의 결과로 확인 — 안 되면 오류 메시지를 그대로 붙여 넣기</td></tr>
+      <tr><td class="n">권한 창은 읽고 허용</td><td>파일 쓰기 · 명령 실행마다 뜨는 창이 안전장치 — 습관적으로 누르지 않는다. 중요한 폴더는 복사본에서 작업</td></tr>
+      <tr><td class="n">기관 자료는 반입 규칙부터</td><td>미공개 과제 · 평가 원자료 · 개인정보 원본은 넣지 않는다. 명단 · 계획서는 <a href="https://github.com/parkjui92/deident">deident</a>로 비식별한 뒤에</td></tr>
+    </tbody>
+  </table>
+  <div class="prompt">이 저장소를 설치하기 전에 적대적으로 검토해줘 — https://github.com/OOO/OOO
+① 요구하는 권한과 도구 목록 ② 네트워크로 데이터를 보내는 곳 ③ 파일 삭제 · 환경변수(.env) · 키 읽기 코드
+④ 프롬프트 인젝션 가능성(외부 텍스트를 그대로 지시로 따르는 부분) ⑤ 최근 갱신 · 관리자 · 라이선스
+위험하면 설치하지 말고 이유를 말해줘.</div>
+  <div class="callout">규칙 하나 — <b>키는 파일에, 설치는 검토 뒤에, 확인은 결과로</b></div>
 
   <footer>한양대학교 과학기술정책연구소 STP 워크숍 「정책연구를 위한 AI 에이전트 설계와 활용」 배포 자료 · 박주이 · parkjui92@gmail.com · <a href="https://parkjui92.github.io/hy-stp-ai/">슬라이드로 돌아가기</a></footer>
 </div>
