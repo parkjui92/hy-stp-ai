@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>과학기술정책 연구 · 논문용 API/MCP 도구 모음</title>
+<meta name="description" content="과학기술정책 분야 연구와 논문 작성에 유용한 공개 API와 MCP 서버를 한 장으로 정리한 목록 — 한양대 STP 워크숍 배포 자료">
+<style>
+:root{--navy:#1E3A6E;--blue:#2F6BFF;--hi:#B3261E;--ink:#1F2937;--muted:#6B7280;--line:#E3E9F2;--bg:#FFFFFF;--card:#F5F8FC;--tint:#E8EFFF}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--navy:#DCE6F8;--blue:#7FA4FF;--hi:#FF8A7A;--ink:#E5E7EB;--muted:#9CA3AF;--line:#2B3444;--bg:#0F1522;--card:#161E2E;--tint:#1E2A44}}
+:root[data-theme="dark"]{--navy:#DCE6F8;--blue:#7FA4FF;--hi:#FF8A7A;--ink:#E5E7EB;--muted:#9CA3AF;--line:#2B3444;--bg:#0F1522;--card:#161E2E;--tint:#1E2A44}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 16px 64px}
+.eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.25em;color:var(--blue);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:6px 0 8px;color:var(--navy);letter-spacing:-.02em}
+h2{font-size:21px;margin:36px 0 10px;color:var(--navy);padding-bottom:6px;border-bottom:2px solid var(--line)}
+.lead{font-size:17px;color:var(--navy);margin:0 0 6px}
+.note{font-size:14px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13.5px;color:var(--muted);margin:10px 0 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.free{background:#E3F3E9;color:#1E7A4C}.key{background:var(--tint);color:var(--navy)}.paid{background:#FFF1EE;color:var(--hi)}.local{background:#F1EAFB;color:#5B3FA3}
+:root[data-theme="dark"] .free,:root:not([data-theme="light"]) .free{background:#163524;color:#8FD9AE}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 10px;font-weight:700;font-size:13.5px}
+:root[data-theme="dark"] th{color:#0F1522}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{font-weight:800;white-space:nowrap;color:var(--navy)}
+a{color:var(--blue);text-decoration:none;word-break:break-all}a:hover{text-decoration:underline}
+.callout{margin:16px 0 0;padding:12px 16px;border-left:4px solid var(--blue);background:var(--card);border-radius:8px;font-size:15px}
+.prompt{background:var(--navy);color:#fff;border-radius:10px;padding:12px 16px;font-size:14.5px;white-space:pre-wrap;margin:10px 0 0}
+:root[data-theme="dark"] .prompt{background:#243b6b}
+footer{margin-top:40px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:640px){table{font-size:13px}th,td{padding:7px 6px}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">한양대 STP 워크숍 · 배포 자료 · 2026-09-21</div>
+  <h1>과학기술정책 연구 · 논문 작성에 유용한 API / MCP 도구 모음</h1>
+  <p class="lead">에이전트에게 붙일 수 있는 <b>자료 창구(API)</b>와 <b>표준 플러그(MCP)</b>를 한 장으로 — 붙이는 법은 전부 말로 시키면 된다</p>
+  <div class="legend">
+    <span><span class="tag free">키 없음</span> 바로 호출</span>
+    <span><span class="tag key">무료 키</span> 신청 후 발급 · .env에 보관</span>
+    <span><span class="tag paid">구독</span> 기관 계약 필요</span>
+    <span><span class="tag local">로컬</span> 내 PC에 설치해 쓰는 것</span>
+  </div>
+  <p class="note">2026년 9월 기준 확인. 창구의 약관·키 정책은 자주 바뀌므로 붙이기 전에 해당 사이트를 한 번 더 본다. 기관망에서는 외부 호출이 막힐 수 있다.</p>
+
+  <h2>1. 학술 문헌 · 서지</h2>
+  <table>
+    <thead><tr><th style="width:18%">이름</th><th style="width:12%">접근</th><th>무엇을 가져오나</th><th style="width:30%">주소</th></tr></thead>
+    <tbody>
+      <tr><td class="n">Crossref</td><td><span class="tag free">키 없음</span></td><td>DOI가 붙은 논문 · 학술지 · 저자 · 발행일 · 인용 수 — 연도별 건수 집계에 바로 쓰인다</td><td><a href="https://api.crossref.org">api.crossref.org</a></td></tr>
+      <tr><td class="n">OpenAlex</td><td><span class="tag key">무료 키</span></td><td>논문 · 저자 · 기관 · 주제 · 인용망 전체. 2026년 2월부터 무료 키 필요</td><td><a href="https://openalex.org">openalex.org</a></td></tr>
+      <tr><td class="n">Semantic Scholar</td><td><span class="tag key">무료 키</span></td><td>논문 검색 · 인용 그래프 · 영향력 있는 인용 구분. 키 없이도 낮은 한도로 가능</td><td><a href="https://api.semanticscholar.org">api.semanticscholar.org</a></td></tr>
+      <tr><td class="n">arXiv</td><td><span class="tag free">키 없음</span></td><td>프리프린트 검색 · 초록 · 저자 — AI · 계산과학 분야 최신 동향</td><td><a href="https://info.arxiv.org/help/api/index.html">info.arxiv.org/help/api</a></td></tr>
+      <tr><td class="n">PubMed (E-utilities)</td><td><span class="tag free">키 없음</span></td><td>생명 · 보건 분야 문헌. 키를 받으면 호출 한도가 올라간다</td><td><a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">ncbi.nlm.nih.gov E-utilities</a></td></tr>
+      <tr><td class="n">KCI (한국학술지인용색인)</td><td><span class="tag key">무료 키</span></td><td>국내 등재 학술지 논문 · 인용 정보 — 국문 선행연구 조사</td><td><a href="https://www.kci.go.kr">kci.go.kr</a> (오픈 API 안내)</td></tr>
+      <tr><td class="n">Dimensions</td><td><span class="tag paid">구독</span></td><td>논문 · 과제(grant) · 특허 · 정책문서를 한 DB에서 — 과제→논문 연결 분석</td><td><a href="https://www.dimensions.ai">dimensions.ai</a></td></tr>
+      <tr><td class="n">Lens.org</td><td><span class="tag key">무료 키</span></td><td>학술 문헌과 특허를 함께 검색 — 기술–연구 연계 분석</td><td><a href="https://www.lens.org">lens.org</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. 국가 R&D · 특허 · 통계 (한국)</h2>
+  <table>
+    <thead><tr><th style="width:18%">이름</th><th style="width:12%">접근</th><th>무엇을 가져오나</th><th style="width:30%">주소</th></tr></thead>
+    <tbody>
+      <tr><td class="n">NTIS</td><td><span class="tag key">무료 키</span></td><td>국가 R&D 과제 · 성과(논문 · 특허 · 사업화) · 연구자 · 장비 — 과제 분석의 1차 원천</td><td><a href="https://www.ntis.go.kr">ntis.go.kr</a> (오픈 API)</td></tr>
+      <tr><td class="n">KIPRIS Plus</td><td><span class="tag key">무료 키</span></td><td>국내 특허 · 실용신안 · 상표 · 디자인 서지와 원문</td><td><a href="https://plus.kipris.or.kr">plus.kipris.or.kr</a></td></tr>
+      <tr><td class="n">KOSIS</td><td><span class="tag key">무료 키</span></td><td>국가통계포털 — 연구개발활동조사 · 인구 · 산업 통계표를 표 단위로</td><td><a href="https://kosis.kr/openapi/">kosis.kr/openapi</a></td></tr>
+      <tr><td class="n">공공데이터포털</td><td><span class="tag key">무료 키</span></td><td>부처 · 공공기관 개방 데이터 수만 종 — 정책연구용역(PRISM) 등 포함</td><td><a href="https://www.data.go.kr">data.go.kr</a></td></tr>
+      <tr><td class="n">법제처 국가법령정보</td><td><span class="tag key">무료 키</span></td><td>법령 · 시행령 · 행정규칙 · 판례 — 현행 여부와 개정일 확인</td><td><a href="https://open.law.go.kr">open.law.go.kr</a></td></tr>
+      <tr><td class="n">PRISM 정책연구관리</td><td><span class="tag key">무료 키</span></td><td>정부 · 지자체 발주 정책연구용역 보고서 — 선행 정책연구 조회</td><td><a href="https://www.prism.go.kr">prism.go.kr</a> (공공데이터포털 API)</td></tr>
+      <tr><td class="n">NKIS 국가정책연구포털</td><td><span class="tag free">키 없음</span></td><td>국책연구기관 보고서 원문 검색 — 사이트 검색 위주(공식 API는 별도 확인)</td><td><a href="https://www.nkis.re.kr">nkis.re.kr</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>3. 해외 통계 · 정책 데이터</h2>
+  <table>
+    <thead><tr><th style="width:18%">이름</th><th style="width:12%">접근</th><th>무엇을 가져오나</th><th style="width:30%">주소</th></tr></thead>
+    <tbody>
+      <tr><td class="n">OECD Data API</td><td><span class="tag free">키 없음</span></td><td>MSTI(과학기술지표) · R&D 지출 · 교육 · 혁신 통계 — 국제 비교</td><td><a href="https://data.oecd.org">data.oecd.org</a> / <a href="https://data-explorer.oecd.org">data-explorer.oecd.org</a></td></tr>
+      <tr><td class="n">World Bank API</td><td><span class="tag free">키 없음</span></td><td>국가별 R&D 지출(GDP 대비) · 연구원 수 · 하이테크 수출 등 지표</td><td><a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392">datahelpdesk.worldbank.org</a></td></tr>
+      <tr><td class="n">Eurostat API</td><td><span class="tag free">키 없음</span></td><td>EU 회원국 R&D · 혁신 · 인력 통계</td><td><a href="https://ec.europa.eu/eurostat/web/main/data/web-services">ec.europa.eu/eurostat</a></td></tr>
+      <tr><td class="n">USPTO PatentsView</td><td><span class="tag key">무료 키</span></td><td>미국 특허 서지 · 출원인 · 인용 — 기술 동향 · 국가별 경쟁력 분석</td><td><a href="https://patentsview.org">patentsview.org</a></td></tr>
+      <tr><td class="n">NSF Awards API</td><td><span class="tag free">키 없음</span></td><td>미국 NSF 과제 정보 — 해외 R&D 투자 사례</td><td><a href="https://www.nsf.gov/developer">nsf.gov/developer</a></td></tr>
+      <tr><td class="n">EU CORDIS</td><td><span class="tag free">키 없음</span></td><td>Horizon Europe 등 EU 연구과제 · 결과 데이터</td><td><a href="https://cordis.europa.eu">cordis.europa.eu</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>4. MCP 서버 — 에이전트에 꽂는 표준 플러그</h2>
+  <table>
+    <thead><tr><th style="width:20%">이름</th><th style="width:12%">접근</th><th>무엇이 가능해지나</th><th style="width:30%">저장소 · 설치</th></tr></thead>
+    <tbody>
+      <tr><td class="n">kordoc</td><td><span class="tag free">키 없음</span></td><td>HWP · HWPX · PDF · 오피스 문서를 마크다운으로 읽고, 양식 채우기 · 신구대조 · hwpx 생성</td><td><a href="https://github.com/chrisryugj/kordoc">github.com/chrisryugj/kordoc</a></td></tr>
+      <tr><td class="n">korean-law-mcp</td><td><span class="tag key">무료 키</span></td><td>법제처 법령 · 판례 · 조례 조회와 인용 검증 — 법제처 인증키(OC) 필요</td><td><a href="https://github.com/chrisryugj/korean-law-mcp">github.com/chrisryugj/korean-law-mcp</a></td></tr>
+      <tr><td class="n">openalex-research-mcp</td><td><span class="tag key">무료 키</span></td><td>OpenAlex로 논문 검색 · 인용 네트워크 · 저자 · 학술지 품질 · 주제 추세</td><td><code>npx -y openalex-research-mcp</code></td></tr>
+      <tr><td class="n">prism-db</td><td><span class="tag local">로컬</span></td><td>정부 발주 정책연구용역 7만여 건을 내 PC의 DB로 — 선행 정책연구 · 발주 이력 · 계약금액 조회</td><td><a href="https://github.com/parkjui92/prism-db">github.com/parkjui92/prism-db</a></td></tr>
+      <tr><td class="n">GitHub MCP</td><td><span class="tag key">무료 키</span></td><td>저장소 · 이슈 · PR을 에이전트가 직접 — "이런 스킬 있어?" 검색과 설치</td><td><a href="https://github.com/github/github-mcp-server">github.com/github/github-mcp-server</a></td></tr>
+      <tr><td class="n">Notion · Slack · Gmail · Google Drive</td><td><span class="tag key">무료 키</span></td><td>회의록 · 메신저 · 메일 · 문서함을 "물어볼 수 있는 자료"로 — 기관 보안 검토 후</td><td>Claude 앱 [앱 및 확장 프로그램]의 커넥터로 연결</td></tr>
+      <tr><td class="n">Tiro</td><td><span class="tag paid">구독</span></td><td>회의 녹취 · 요약을 에이전트가 읽어 할 일과 근거로 분류</td><td>Claude 앱 커넥터 / <a href="https://tiro.ooo">tiro.ooo</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. 함께 쓰는 스킬 · 도구 (공개 · MIT)</h2>
+  <table>
+    <thead><tr><th style="width:20%">이름</th><th>무엇을 하나</th><th style="width:34%">저장소</th></tr></thead>
+    <tbody>
+      <tr><td class="n">policy-research-kit</td><td>정책연구 5인 에이전트 팀 플러그인 — 설계 → 조사 → 집필 → 검수 → 한글 변환</td><td><a href="https://github.com/parkjui92/policy-research-kit">github.com/parkjui92/policy-research-kit</a></td></tr>
+      <tr><td class="n">rnd-proposal-kit · socsci-paper-kit</td><td>정부 R&D 제안서 팀 · 사회과학 논문 팀</td><td><a href="https://github.com/parkjui92/rnd-proposal-kit">rnd-proposal-kit</a> · <a href="https://github.com/parkjui92/socsci-paper-kit">socsci-paper-kit</a></td></tr>
+      <tr><td class="n">paper-proofread</td><td>한국어 학술 원고 교정 · 교열 + 참고문헌 형식</td><td><a href="https://github.com/parkjui92/paper-proofread">github.com/parkjui92/paper-proofread</a></td></tr>
+      <tr><td class="n">doc-figure</td><td>한글이 깨지지 않는 삽도 — 일정도 · 구조도 · 흐름도 (설치 없이도)</td><td><a href="https://github.com/parkjui92/doc-figure">github.com/parkjui92/doc-figure</a></td></tr>
+      <tr><td class="n">deident</td><td>연구계획서 · 명단의 민감정보를 내 PC 안에서 비식별</td><td><a href="https://github.com/parkjui92/deident">github.com/parkjui92/deident</a></td></tr>
+      <tr><td class="n">korea-cabinet-stp</td><td>국무회의 자료 아카이브 — 검색 · 분석 · 자연어 질의</td><td><a href="https://github.com/parkjui92/korea-cabinet-stp">github.com/parkjui92/korea-cabinet-stp</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>6. 붙이는 법 — 전부 말로</h2>
+  <div class="prompt">법령을 검색하고 조문을 확인할 수 있는 MCP 도구를 설치해줘.</div>
+  <div class="prompt">이 저장소를 클론해서 설치해줘 — https://github.com/parkjui92/deident
+설치가 끝나면 무엇을 할 수 있는지, 어떻게 부르는지 알려줘.</div>
+  <div class="prompt">Crossref API로 최근 3년 science and technology policy 논문을 연도별로 집계해서 표로 보여줘.</div>
+  <div class="callout">키가 필요한 창구는 <b>.env 파일</b>에 키를 두고 에이전트가 읽게 한다 — 문서 · 채팅 · 슬라이드에 키를 적지 않는다. 설치가 안 되면 오류 메시지를 그대로 붙여 넣고 "왜 안 되는지 설명하고 고쳐줘"</div>
+
+  <footer>한양대학교 과학기술정책연구소 STP 워크숍 「정책연구를 위한 AI 에이전트 설계와 활용」 배포 자료 · 박주이 · parkjui92@gmail.com · <a href="https://parkjui92.github.io/hy-stp-ai/">슬라이드로 돌아가기</a></footer>
+</div>
+</body>
+</html>
