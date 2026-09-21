@@ -1,6 +1,6 @@
 # 정책연구를 위한 AI 에이전트 설계와 활용 — 한양대 STP 워크숍 (2026-09-21)
 
-강의 슬라이드 69장 · 자기완결 HTML(외부 참조 없음). **[슬라이드 열기](https://parkjui92.github.io/hy-stp-ai/)**
+강의 슬라이드 69장 · 자기완결 HTML(외부 참조 없음). **[슬라이드 열기](https://parkjui92.github.io/hy-stp-ai/)** · **[PDF 내려받기](https://github.com/parkjui92/hy-stp-ai/raw/main/STP_AI_Agent_Workshop_20260921.pdf)** (69쪽 · 글꼴 내장)
 
 - 조작: ← → 이동 · `O` 목차 · `T` 밝게/어둡게 · `F` 전체화면 · `Cmd+P` PDF
 - 실습 안내(5부)는 각자 따라 하는 순서로 구성 — 정책연구 킷: [policy-research-kit](https://github.com/parkjui92/policy-research-kit)
