@@ -4,4 +4,5 @@
 
 - 조작: ← → 이동 · `O` 목차 · `T` 밝게/어둡게 · `F` 전체화면 · `Cmd+P` PDF
 - 실습 안내(5부)는 각자 따라 하는 순서로 구성 — 정책연구 킷: [policy-research-kit](https://github.com/parkjui92/policy-research-kit)
+- **더 알아보고 싶다면** — 지난 학기 강의자료: https://hanyang2026-1.pages.dev
 - 문의: parkjui92@gmail.com · 강의자료 제작 도구: [lecture-deck-kit](https://github.com/parkjui92/lecture-deck-kit)
