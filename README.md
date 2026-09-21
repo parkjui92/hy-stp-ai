@@ -8,8 +8,8 @@
 
 | 자료 | 링크 | 비고 |
 |---|---|---|
-| 강의 슬라이드 (웹) | **https://parkjui92.github.io/hy-stp-ai/** | 69장 · 브라우저에서 바로 열림 |
-| 강의 슬라이드 (PDF) | **[PDF 내려받기](https://github.com/parkjui92/hy-stp-ai/raw/main/STP_AI_Agent_Workshop_20260921.pdf)** | 69쪽 · 글꼴 내장(한글 안 깨짐) · 인쇄용 |
+| 강의 슬라이드 (웹) | **https://parkjui92.github.io/hy-stp-ai/** | 68장 · 브라우저에서 바로 열림 |
+| 강의 슬라이드 (PDF) | **[PDF 내려받기](https://github.com/parkjui92/hy-stp-ai/raw/main/STP_AI_Agent_Workshop_20260921.pdf)** | 68쪽 · 글꼴 내장(한글 안 깨짐) · 인쇄용 |
 | API · MCP 도구 모음 | **https://parkjui92.github.io/hy-stp-ai/tools.html** | 과학기술정책 연구 · 논문에 쓸 만한 자료 창구와 MCP 서버 한 장 정리 |
 | 지난 학기 강의자료 | **https://hanyang2026-1.pages.dev** — 접속코드 `AISTP26` | 더 깊이 알아보고 싶을 때 (LLM 원리 · 한계 · 실습 전 과정) |
 
