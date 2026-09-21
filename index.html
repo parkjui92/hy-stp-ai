@@ -620,7 +620,8 @@ thead th b{color:#fff}
 @media print{
   @page{size:297mm 210mm;margin:0}
   body{overflow:visible;display:block;background:#fff}
-  #stage{transform:none!important;width:100%;height:auto;box-shadow:none;border-radius:0;counter-reset:pg}
+  #viewport{display:block!important;height:auto!important;overflow:visible!important}  /* 세로 가운데 정렬이 앞 슬라이드를 위로 밀어내던 것 — 인쇄 1쪽 백지 원인 */
+  #stage{transform:none!important;width:100%;height:auto;overflow:visible!important;box-shadow:none;border-radius:0;counter-reset:pg}
   .slide{position:relative;display:flex!important;opacity:1!important;page-break-after:always;height:190mm;border-bottom:1px solid #ddd;counter-increment:pg}
   .slide::after{content:counter(pg);position:absolute;right:14mm;bottom:7mm;
     font-size:11px;color:#8a94a6;font-variant-numeric:tabular-nums}
